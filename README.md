@@ -1,9 +1,19 @@
 # ruby-sinatra-project
 
 wire frame 
+HOMEPAGE:
 https://wireframe.cc/2hF6pa
 
-This app will allow users to register an account and log in. Once logged in, they are able to create listings for items they want to sell. With their listings they can edit/update and delete them as well. They will also be able to search any for any availabe listings by keyword through the search bar.
+CREATE:
+https://wireframe.cc/BurJhI
+
+MY LISTINGS-THIS WILL HAVE THE EDIT/UPDATE AND DELETE OPTION:
+https://wireframe.cc/rRLFNG
+
+-WHEN USERS REGISTER OR LOGIN THEY WILL NEED TO INPUT THEIR OWN UNIQUE USERNAME AND PASSWORD. THE USERNAME MUST NOT BE DUPLICATED 
+-ONCE USERS HAVE CREATED AN ACCOUNT THEY WILL BE ABLE TO CREATE A LISTING, EDIT/UPDATE THEIR OWN LISTINGS, AND DESTROY THEIR OWN LISTINGS.
+-USERS WILL BE ABLE TO SEARCH ANY LISTINGS THAT ARE CURRENTLY AVAILABLE RELATIVE TO THE KEYWORD  
+
 
 API ENDPOINTS
 
