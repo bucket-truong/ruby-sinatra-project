@@ -103,3 +103,9 @@ CREATE TABLE products (
 
 
 table USERS =>id, username, password_digest, Products => title, image, description, product_price,  user_id
+
+
+==========================
+bonuses
+
+incorporate third party apis
