@@ -1,7 +1,6 @@
 # ruby-sinatra-project
 
-wire frame 
-
+WIRE FRAME
 HOMEPAGE:
 https://wireframe.cc/2hF6pa
 
@@ -10,6 +9,8 @@ https://wireframe.cc/BurJhI
 
 MY LISTINGS-THIS WILL HAVE THE EDIT/UPDATE AND DELETE OPTION:
 https://wireframe.cc/rRLFNG
+
+USER STORY
 
 -WHEN USERS REGISTER OR LOGIN THEY WILL NEED TO INPUT THEIR OWN UNIQUE USERNAME AND PASSWORD. THE USERNAME MUST NOT BE DUPLICATED 
 
@@ -73,3 +74,24 @@ GET /sale-now/edit/ params {item.id}  — returns EDIT form
 **DESTROY**
 
 DELETE /sale-now/ params { item.id } — deletes  product from users selling list
+
+
+
+CREATE DATABASE sale_products;
+
+\c sale_products
+
+CREATE TABLE users (
+	id SERIAL PRIMARY KEY,
+	username VARCHAR(32),
+	password_digest VARCHAR(60)
+)
+
+CREATE TABLE products (
+	id SERIAL PRIMARY KEY,
+	title VARCHAR (60),
+	image VARCHAR (500),
+	product_price DECIMAL (6, 2) NOT NULL,
+	description VARCHAR (1000),
+	user_id INTEGER REFERENCES users(id)
+)
