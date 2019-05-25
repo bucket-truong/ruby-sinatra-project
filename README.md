@@ -79,13 +79,16 @@ DELETE /sale-now/ params { item.id } — deletes  product from users selling lis
 
 CREATE DATABASE sale_products;
 
+
 \c sale_products
+
 
 CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
 	username VARCHAR(32),
 	password_digest VARCHAR(60)
 )
+
 
 CREATE TABLE products (
 	id SERIAL PRIMARY KEY,
@@ -95,3 +98,7 @@ CREATE TABLE products (
 	description VARCHAR (1000),
 	user_id INTEGER REFERENCES users(id)
 )
+
+
+
+table USERS =>id, username, password_digest, Products => title, image, description, product_price,  user_id
