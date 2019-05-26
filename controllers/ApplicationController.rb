@@ -14,15 +14,15 @@ class ApplicationController < Sinatra::Base
   use Rack::MethodOverride
   set :method_override, true
 
-  set :views, File.expand_path('../..views', __FILE__)
+  set :views, File.expand_path('../../views', __FILE__)
   set :public_dir, File.expand_path('../../public', __FILE__)
 
   get '/test' do
     'hello world'
   end
 
-  get '*' do
-    halt 404
-  end
+  # get '*' do
+  #   halt 404
+  # end
 
 end
