@@ -4,6 +4,13 @@
 	<title>Login</title>
 </head>
 <body>
-	<h1>Login Form</h1>
+	<h2>Login Form</h2>
+	<form action="/auth/login" method="POST">
+		<input type="username" name="username" placeholder="username">
+		<input type="password" name="password" 
+		placeholder="password">
+		<button>Login</button>
+	</form>
+	<small>Need an account? <a href="/auth/register">Sign up here!</a></small>
 </body>
 </html>
