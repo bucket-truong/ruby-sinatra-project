@@ -36,12 +36,54 @@ class UserController < ApplicationController
 			status: "bad",
 			message: "Sorry username #{params[:username]} is already taken"
 		}
-	return "Fuck you doesn't didn't signed up"
+	redirect '/sale-now/items'
 	 end
 	end
 
 	# shows login page 
 	get '/login' do
 		erb :login	
+	end
+
+	# do login 
+
+	post '/login' do
+  	 user = User.find_by username: params[:username]
+  	 pw = params[:password]
+
+  	 if user && user.authenticate(pw)
+  	 	session[:logged_in] = true
+  	 	session[:username] = user.username
+  	 	session[:message] = {
+  	 		success: true,
+  	 		status: "good",
+  	 		message: "logged in as #{user.username}"
+  	 	}
+  	 
+  	 	redirect '/sale-now/items'
+  	 
+  	  else
+      # error -- incorrect un or pw
+      session[:message] = {
+        success: false,
+        status: "bad",
+        message: "Invalid username or password."
+      }
+      
+      # redirect to /login so they can reattempt
+      redirect '/users/login'
+	 end
+	end
+
+	# logout
+	get '/logout' do
+		username = session[:username]
+		session.destroy
+		session[:message] = {
+			success: true,
+			status: "neutral",
+			message: "User #{username} loggedout"
+		}
+		redirect '/sale-now/items'
 	end
 end
