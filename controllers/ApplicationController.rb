@@ -18,6 +18,7 @@ class ApplicationController < Sinatra::Base
   set :public_dir, File.expand_path('../../public', __FILE__)
 
   get '/test' do
+    binding.pry
     'hello world'
   end
 
