@@ -2,24 +2,28 @@ class ProductController < ApplicationController
 
 
 
-get '/' do
-    user = User.find_by({
+  get '/' do
+      user = User.find_by({
+        :username => session[:username]
+        })
+        @products = user.products
+        erb :products_index
+  end
+
+  get '/:id/edit' do
+    @product = product.find params[:id]
+    erb :products_edit
+  end
+
+  post '/' do
+    new_products = Product.new
+    new_products.title = params[:title]
+    new_products.product_price = params[:price]
+    new_products.description = params[:description]
+    new_products.image = params[:image]
+
+    logged_in_user = User.find_by ({
       :username => session[:username]
-      })
-      @products = user.products
-      erb :products_index
-end
-
-get '/:id/edit' do
-  @product = product.find params[:id]
-  erb :products_edit
-end
-
-post '/' do
-  new_products = Product.new
-  new_products.content[:content]
-  logged_in_user = User.find_by ({
-    :username => session[:username]
     })
     new_products.user_id = logged_in_user.id
     new_products.save
@@ -29,7 +33,8 @@ post '/' do
       message: "Listing has been posted!"
     }
     redirect '/products'
-end
+  end
+
   get '/new' do
     erb :product_new
   end
