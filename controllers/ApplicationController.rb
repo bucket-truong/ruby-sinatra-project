@@ -1,7 +1,7 @@
 class ApplicationController < Sinatra::Base
-  
+
   require 'bundler'
-  
+
   Bundler.require()
 
   enable :sessions
@@ -16,6 +16,10 @@ class ApplicationController < Sinatra::Base
 
   set :views, File.expand_path('../../views', __FILE__)
   set :public_dir, File.expand_path('../../public', __FILE__)
+
+  get '/' do
+    redirect '/products'
+  end
 
   get '/test' do
     'hello world'
