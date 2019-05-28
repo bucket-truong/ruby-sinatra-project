@@ -22,6 +22,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/test' do
+    binding.pry
     'hello world'
   end
 
