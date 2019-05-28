@@ -3,20 +3,20 @@ class ProductController < ApplicationController
 
 
 get '/' do
-    # user = User.find_by({
-    #   :username => session[:username]
-    #   })
-    #   @items = user.items
+    user = User.find_by({
+      :username => session[:username]
+      })
+      @products = user.products
       erb :products_index
 end
 
-# get '/:id/edit' do
-#   @item = Item.find params[:id]
-#   erb :products_edit
-# end
+get '/:id/edit' do
+  @product = product.find params[:id]
+  erb :products_edit
+end
 
 post '/' do
-  new_products = Item.new
+  new_products = Product.new
   new_products.content[:content]
   logged_in_user = User.find_by ({
     :username => session[:username]
@@ -34,4 +34,29 @@ end
     erb :product_new
   end
 
+  put '/:id' do
+    prod = Product.find params[:id]
+    prod.content = params[:content]
+    prod.save
+    session[:message] = {
+      success: true,
+      status: "good",
+      message: "Listed has been updated"
+    }
+    redirect '/products'
+  end
+
+  delete '/:id' do
+    product = Product.find params[:id]
+    product.destroy
+    # session[:message] = {
+    #   success: true,
+    #   status: "good",
+    #   message: "Listing has been deleted"
+    # }
+    redirect '/products'
+  end
+  after do
+    puts "after filter"
+  end
 end

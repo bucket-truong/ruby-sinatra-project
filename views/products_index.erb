@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-
-    <h2>Home</h2>
-    
-  </body>
-</html>
+  <h2>Home</h2>
+    <ul>
+      <% @products.each do |product| %>
+        <li>
+            <%= product.content %>
+            <a href="/products/<%= product.id %>/edit">(Edit)</a>
+            <form action="/products/<%= product.id %>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button>Delete</button>
+            </form>
+        </li>
+      <% end %>
+    </ul>
