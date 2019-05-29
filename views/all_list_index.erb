@@ -5,7 +5,7 @@
 </head>
 <body>
 	<% @category.each do |category|%>
-		<a href="/category/<%=category.id%>"><%= category[:name] %></a>|
+		<a href="/products/category/<%=category.id%>"><%= category[:name] %></a>|
 	<% end %>
 
 

@@ -7,7 +7,13 @@
 
 	<h2>you are in right category</h2>
 
-	<% @product.each do %>
-	
+	<% @product.each do |item|%>
+		<ul>
+			<li><%=item.title%></li>
+			<li><%=item.product_price%></li>
+			<li><%=item.description%></li>
+			<button>Purchase</button>
+		</ul>
+	<% end%>
 </body>
 </html>
