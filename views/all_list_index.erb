@@ -4,6 +4,7 @@
 	<title>All List</title>
 </head>
 <body>
+	<h1>SPLY</h1>
 	<% @category.each do |category|%>
 		<a href="/products/category/<%=category.id%>"><%= category[:name] %></a>|
 	<% end %>
