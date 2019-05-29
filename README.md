@@ -34,47 +34,47 @@ Website interaction
 ——————————————————————
 #INDEX ROUTE
 
-GET /sale-now/items —  (home page) returns all products for sale (no matter if user is logged in or not)
+GET /products/items —  (home page) returns all products for sale (no matter if user is logged in or not)
 
 ===================================
 
 #SHOW ROUTE - user clicks on item. Browser redirects user to show page of item to sale
 
-GET /sale-now/items/params { item.id } -- returns one item for sale
+GET /products/items/params { item.id } -- returns one item for sale
 
 ===================================
 
 GET “NEW” FORM 
 
-GET /sale-now/new — returns form for creating an post 
+GET /products/new — returns form for creating an post 
 
 ===================================
 
 #NEW ROUTE
 
-POST /sale-now/mylist — adding the product for sale to users list
+POST /products/mylist — adding the product for sale to users list
 
 ===================================
 
 **INDEX ROUTE FOR USERS ITEM LIST”
 
-GET /sale-now/mylist — returns list of user’s products to sale 
+GET /products/mylist — returns list of user’s products to sale 
 
 ===================================
 
 **EDIT ROUTE*
-GET /sale-now/edit/ params {item.id}  — returns EDIT form 
+GET /products/edit/ params {item.id}  — returns EDIT form 
              
 ===================================
 
 **UPDATE  ROUTE**
-  PUT /sale-now/ params { item.id } 
+  PUT /products/ params { item.id } 
 
 ===================================
 
 **DESTROY**
 
-DELETE /sale-now/ params { item.id } — deletes  product from users selling list
+DELETE /products/ params { item.id } — deletes  product from users selling list
 
 
 
