@@ -4,5 +4,10 @@
   <input type="number" name="price" placeholder="Price" min="0"/><br/>
   <input type="text" name="description" placeholder="Description"/><br/>
   <input type="text" name="image" placeholder="Image URL"><br/>
+  <select name="category">
+    <% @category.each do |category| %>
+  	<option value="<%=category.id%>"><%=category[:name]%></option>
+    <% end %>
+  </select>
   <button>Submit</button><br/>
 </form>
