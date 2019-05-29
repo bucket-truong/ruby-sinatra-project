@@ -54,11 +54,11 @@ class ProductController < ApplicationController
   delete '/:id' do
     product = Product.find params[:id]
     product.destroy
-    # session[:message] = {
-    #   success: true,
-    #   status: "good",
-    #   message: "Listing has been deleted"
-    # }
+    session[:message] = {
+      success: true,
+      status: "good",
+      message: "Listing has been deleted"
+    }
     redirect '/products'
   end
   after do
