@@ -84,6 +84,6 @@ class UserController < ApplicationController
 			status: "neutral",
 			message: "User #{username} loggedout"
 		}
-		redirect '/products/items'
+		redirect '/auth/login'
 	end
 end

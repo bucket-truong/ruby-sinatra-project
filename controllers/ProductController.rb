@@ -21,21 +21,24 @@ class ProductController < ApplicationController
     new_products.product_price = params[:price]
     new_products.description = params[:description]
     new_products.image = params[:image]
-
     logged_in_user = User.find_by ({
       :username => session[:username]
     })
+
     new_products.user_id = logged_in_user.id
+    new_products.category_id = params[:category].to_i
     new_products.save
     session[:message] = {
       success: true,
       status: "good",
       message: "Listing has been posted!"
     }
+
     redirect '/products'
   end
 
   get '/new' do
+    @category = Category.all
     erb :product_new
   end
 
