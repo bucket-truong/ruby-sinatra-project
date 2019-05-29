@@ -7,15 +7,23 @@
   </head>
   <body>
 
+<% if session[:logged_in]%>
 <header>
   <nav>
+    <a href="/products/all-list">Home</a>
     <a href="/products">My Listings</a>
     <a href="/products/new">Create new listing</a>
     <a href="/auth/logout">Log out</a>
   </nav>
-
 </header>
 
+<%else%>
+  <nav>
+    <a href="/products/all-list">Home</a>
+    <a href="/auth/login">Login</a>
+    <a href="/auth/register">Sign up</a>
+  </nav>
+<%end%>
   <%=yield%>
 
   </body>
