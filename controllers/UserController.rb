@@ -86,4 +86,6 @@ class UserController < ApplicationController
 		}
 		redirect '/auth/login'
 	end
+
+	
 end
