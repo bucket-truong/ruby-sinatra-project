@@ -1,7 +1,6 @@
 class ProductController < ApplicationController
 
 
-
   get '/' do
       user = User.find_by({
         :username => session[:username]
@@ -11,8 +10,8 @@ class ProductController < ApplicationController
   end
 
   get '/:id/edit' do
-    @product = product.find params[:id]
-    erb :products_edit
+    @product = Product.find params[:id]
+    erb :product_edit
   end
 
   post '/' do
@@ -44,7 +43,9 @@ class ProductController < ApplicationController
 
   put '/:id' do
     prod = Product.find params[:id]
-    prod.content = params[:content]
+    prod.title = params[:title]
+    prod.product_price = params[:product_price]
+    prod.description = params[:description]
     prod.save
     session[:message] = {
       success: true,
@@ -75,7 +76,7 @@ class ProductController < ApplicationController
     @product = Product.where :category_id => params[:id]
     erb :category_show
   end
-  
+
   after do
     puts "after filter"
   end

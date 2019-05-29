@@ -2,7 +2,7 @@
   <form action="/products/<%=@product.id%>" method="post">
     <input type="hidden" name="_method" value="put"/>
     <input type="text" name="title" value=""<%=@product.title%>"/>
-    <input type="number" name="product_price" value="put">
+    <input type="number" name="product_price" value="<%=@product.product_price%>">
     <input type="text" name="description" value="<%=@product.description%>">
-    <button type="button" name="button">Update listing</button>
+    <button>Update listing</button> 
   </form>
