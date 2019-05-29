@@ -1,7 +1,7 @@
 class ProductController < ApplicationController
 
-
-
+   # has_attached_file :image, styles: {medium:"300x300>", thumb:"100x100>"}
+   # validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   get '/' do
       user = User.find_by({
         :username => session[:username]
@@ -21,6 +21,7 @@ class ProductController < ApplicationController
     new_products.product_price = params[:price]
     new_products.description = params[:description]
     new_products.image = params[:image]
+    
     logged_in_user = User.find_by ({
       :username => session[:username]
     })
