@@ -64,6 +64,18 @@ class ProductController < ApplicationController
     }
     redirect '/products'
   end
+
+  get '/all-list' do
+    @products = Product.all
+    @category = Category.all
+    erb :all_list_index
+  end
+
+  get '/category/:id' do
+    @product = Product.where :category_id => params[:id]
+    erb :category_show
+  end
+  
   after do
     puts "after filter"
   end
