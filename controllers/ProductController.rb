@@ -16,8 +16,11 @@ end
 # end
 
 post '/' do
-  new_products = Item.new
-  new_products.content[:content]
+  new_products = Poduct.new
+  new_products.title[:title]
+  new_products.title[:price]
+  new_products.description[:description]
+  new_products.images[:images]
   logged_in_user = User.find_by ({
     :username => session[:username]
     })
@@ -28,7 +31,7 @@ post '/' do
       status: "good",
       message: "Listing has been posted!"
     }
-    redirect '/products'
+    print '/products'
 end
   get '/new' do
     erb :product_new
