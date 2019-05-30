@@ -1,0 +1,17 @@
+
+<h2>Details</h2>
+<div>
+	<img src="<%=@product.image%>" height="100px">
+	<ul>
+		<li><%=@product.title%></li>
+		<li><%=@product.product_price%></li>
+		<li><%=@product.description%></li>
+		<li>rating: </li>
+	</ul>
+	<% if session[:logged_in] %>
+		<form action="/products/rating/<%=@product.id%>" method="POST">
+			Rate: <input type="number" name="rating" min="1" max="5" value="5">
+			<input type="submit">
+		</form>
+	<% end %>
+</div>
