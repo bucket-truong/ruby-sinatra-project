@@ -4,6 +4,8 @@ class ApplicationController < Sinatra::Base
   
   Bundler.require()
 
+  require './config/environments'
+  
   enable :sessions
 
   ActiveRecord::Base.establish_connection(
