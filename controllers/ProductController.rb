@@ -77,6 +77,11 @@ class ProductController < ApplicationController
     erb :category_show
   end
 
+  get '/all-list/:id' do 
+    @product = Product.find params[:id]
+    erb :product_show
+  end
+
   after do
     puts "after filter"
   end
