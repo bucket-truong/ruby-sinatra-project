@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-</head>
-<body>
+
 	<%if session[:message]%>
 		<h3><%=session[:message][:message]%></h3>
 	<%end%>
@@ -15,5 +10,3 @@
 		<button>Login</button>
 	</form>
 	<small>Need an account? <a href="/auth/register">Sign up here!</a></small>
-</body>
-</html>

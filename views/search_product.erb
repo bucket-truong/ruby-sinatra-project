@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Result of search</h1>
+	<% @product.each  do |item| %>
+		<ul>
+			<img src="<%=item.image%>">
+			<li><%=item.title%></li>
+			<li><%=item.description%></li>
+			<li><%=item.product_price%></li>
+		</ul>
+	<% end %>
+</body>
+</html>

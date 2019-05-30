@@ -1,6 +1,7 @@
   <h2>My List</h2>
     <ul>
       <% @products.each do |product| %>
+      <img src="<%=product.image%>">
         <li>
             <%=product.title%>
             <%=product.product_price%>

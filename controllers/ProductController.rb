@@ -78,6 +78,11 @@ class ProductController < ApplicationController
     erb :category_show
   end
 
+  get '/:title' do
+    @product = Product.where :title => params[:product]
+    erb :search_product
+  end
+
   after do
     puts "after filter"
   end

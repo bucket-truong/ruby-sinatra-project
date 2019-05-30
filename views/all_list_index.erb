@@ -2,23 +2,43 @@
 <html>
 <head>
 	<title>All List</title>
+	<style type="text/css">
+		.products{
+			float:left;
+			width:200px;
+			height:250px;
+		}
+		.categories {
+			margin-bottom:50px;
+		}
+	</style>
 </head>
 <body>
+
+
+	<div class="categories">
 	<h1>SPLY</h1>
 	<% @category.each do |category|%>
 		<a href="/products/category/<%=category.id%>"><%= category[:name] %></a>|
 	<% end %>
+	<form action="/products/:title" method="GET">
+		<input type="search" name="product">
+		<input type="submit" name="" value="search">
+	</form>
+	</div>
 
-
-
+	
 	<% @products.each do |product|%>
-		<img style="width:250px; height:auto" src="<%=product.image%>" alt="<%=product.title%>">
+	<div class="products">
+		<img style="width:100px; height:auto" src="<%=product.image%>" alt="<%=product.title%>">
 		<ul>
 			<li><%=product.title%></li>
 			<li><%=product.product_price%></li>
 			<li><%=product.description%></li>
 			<button>Purchase</button>
 		</ul>
+		</div>
 	<% end %>
+
 </body>
 </html>
