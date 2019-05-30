@@ -79,7 +79,7 @@ class ProductController < ApplicationController
 
   get '/all-list/:id' do 
     @product = Product.find params[:id]
-    erb :product_show
+    erb :products_show
   end
 
   after do
