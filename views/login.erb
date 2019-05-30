@@ -4,6 +4,9 @@
 	<title>Login</title>
 </head>
 <body>
+	<%if session[:message]%>
+		<h3><%=session[:message][:message]%></h3>
+	<%end%>
 	<h2>Login Form</h2>
 	<form action="/auth/login" method="POST">
 		<input type="username" name="username" placeholder="username">

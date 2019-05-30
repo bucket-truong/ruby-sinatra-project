@@ -20,7 +20,7 @@ class UserController < ApplicationController
 	  user.save
 
 	  session[:logged_in] = true
-	  session[:message] = user.username
+	  session[:username] = user.username
 	  session[:message] = {
 	  	success: true,
 	  	status: "good",
@@ -28,15 +28,15 @@ class UserController < ApplicationController
 	  }
 
 	 # redirect '/products/products'
-	 return "Welcome to products #{user.username}"
-
+	 # return "Welcome to products #{user.username}"
+	 redirect '/products/all-list'
 	else
 		session[:message] = {
 			success: false,
 			status: "bad",
 			message: "Sorry username #{params[:username]} is already taken"
 		}
-	redirect '/products/items'
+	redirect '/products/all-list'
 	 end
 	end
 
@@ -60,7 +60,7 @@ class UserController < ApplicationController
   	 		message: "logged in as #{user.username}"
   	 	}
 
-  	 	redirect '/products'
+  	 	redirect '/products/all-list'
 
   	  else
       # error -- incorrect un or pw
@@ -71,7 +71,7 @@ class UserController < ApplicationController
       }
 
       # redirect to /login so they can reattempt
-      redirect '/users/login'
+      redirect '/auth/login'
 	 end
 	end
 

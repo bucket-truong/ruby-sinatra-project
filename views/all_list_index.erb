@@ -12,6 +12,7 @@
 
 
 	<% @products.each do |product|%>
+		<img style="width:250px; height:auto" src="<%=product.image%>" alt="<%=product.title%>">
 		<ul>
 			<li><%=product.title%></li>
 			<li><%=product.product_price%></li>
