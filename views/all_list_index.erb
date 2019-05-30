@@ -5,19 +5,22 @@
 </head>
 <body>
 	<h1>SPLY</h1>
+	<div class="category">
 	<% @category.each do |category|%>
 		<a href="/products/category/<%=category.id%>"><%= category[:name] %></a>|
 	<% end %>
+	</div>
 
+	<div class="product-made">
+		<% @products.each do |product|%>
+			<div class="product">
+				<%=product.title%><br/>
+				<%=product.product_price%><br/>
+				<%=product.description%><br/>
+				<button type="button" class="btn btn-secondary">Purchase</button>
+			</div>
+			<% end %>
+		</div>
 
-
-	<% @products.each do |product|%>
-		<ul>
-			<li><%=product.title%></li>
-			<li><%=product.product_price%></li>
-			<li><%=product.description%></li>
-			<button>Purchase</button>
-		</ul>
-	<% end %>
 </body>
 </html>

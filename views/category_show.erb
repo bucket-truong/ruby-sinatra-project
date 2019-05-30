@@ -8,12 +8,13 @@
 	<h2>you are in right category</h2>
 
 	<% @product.each do |item|%>
-		<ul>
-			<li><%=item.title%></li>
-			<li><%=item.product_price%></li>
-			<li><%=item.description%></li>
-			<button>Purchase</button>
-		</ul>
-	<% end%>
+		<div class="product">
+			<%=item.title%><br/>
+			<%=item.product_price%><br/>
+			<%=item.description%><br/>
+			<button type="button">Purchase</button>
+		</div>
+		<% end %>
+
 </body>
 </html>
