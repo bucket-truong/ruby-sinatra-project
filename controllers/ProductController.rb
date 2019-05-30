@@ -82,6 +82,15 @@ class ProductController < ApplicationController
     erb :products_show
   end
 
+  post '/rating/:id' do
+    # Create new rating
+    rating = Rating.new
+    rating.product_rating = params[:rating]
+    rating.product_id = params[:id]
+    rating.save
+    redirect '/products/all-list'
+  end
+
   after do
     puts "after filter"
   end

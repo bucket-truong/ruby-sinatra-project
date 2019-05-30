@@ -9,7 +9,7 @@
 		<li>rating: </li>
 	</ul>
 	<% if session[:logged_in] %>
-		<form action="/ratings" method="POST">
+		<form action="/products/rating/<%=@product.id%>" method="POST">
 			Rate: <input type="number" name="rating" min="1" max="5" value="5">
 			<input type="submit">
 		</form>

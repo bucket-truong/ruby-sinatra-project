@@ -19,7 +19,11 @@ INSERT INTO products (title, image, product_price, description, user_id, categor
 INSERT INTO products (title, image, product_price, description, user_id, category_id) VALUES ('Snikers',
 'https://target.scene7.com/is/image/Target/GUEST_211482e4-2703-42c0-b76a-55a6f23ba443?wid=488&hei=488&fmt=pjpeg', 100.67, 'snikers in good condition, barely used', 1, 1);
 
-INSERT INTO ratings (product_rating, product_id) VALUES (4, 1)
+INSERT INTO ratings (product_rating, product_id) VALUES (4, 1);
+INSERT INTO ratings (product_rating, product_id) VALUES (5, 1);
+INSERT INTO ratings (product_rating, product_id) VALUES (2, 1);
+INSERT INTO ratings (product_rating, product_id) VALUES (3, 1);
+INSERT INTO ratings (product_rating, product_id) VALUES (1, 1);
 
   -- #show table of all users whether they have posts or not
   -- SELECT users.username AS person_name,
