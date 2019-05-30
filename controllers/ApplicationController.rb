@@ -1,7 +1,7 @@
 class ApplicationController < Sinatra::Base
-  
+
   require 'bundler'
-  
+
   Bundler.require()
 
   require './config/environments'
@@ -19,7 +19,12 @@ class ApplicationController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
   set :public_dir, File.expand_path('../../public', __FILE__)
 
+  get '/' do
+    redirect '/products/all-list'
+  end
+
   get '/test' do
+    binding.pry
     'hello world'
   end
 

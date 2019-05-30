@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-	
+
 	# shows sign up form
 	get '/register' do
 		erb :register
@@ -11,8 +11,8 @@ class UserController < ApplicationController
 	 #check if user exists
 	 user = User.find_by username: params[:username]
 	 #if user doesn't exist
-	 
-	 if !user 
+
+	 if !user
 	  user = User.new
 	  # username = input from username
 	  user.username = params[:username]
@@ -20,32 +20,32 @@ class UserController < ApplicationController
 	  user.save
 
 	  session[:logged_in] = true
-	  session[:message] = user.username
+	  session[:username] = user.username
 	  session[:message] = {
 	  	success: true,
 	  	status: "good",
 	  	message: "Welcome to the site, you are now logged in as #{user.username}"
-	  }	
+	  }
 
-	 # redirect '/sale-now/products'
-	 return "Welcome to Sale-Now #{user.username}"
+	 # redirect '/products/products'
+	 return "Welcome to products #{user.username}"
 
-	else 
+	else
 		session[:message] = {
 			success: false,
 			status: "bad",
 			message: "Sorry username #{params[:username]} is already taken"
 		}
-	redirect '/sale-now/items'
+	redirect '/products/items'
 	 end
 	end
 
-	# shows login page 
+	# shows login page
 	get '/login' do
-		erb :login	
+		erb :login
 	end
 
-	# do login 
+	# do login
 
 	post '/login' do
   	 user = User.find_by username: params[:username]
@@ -59,9 +59,9 @@ class UserController < ApplicationController
   	 		status: "good",
   	 		message: "logged in as #{user.username}"
   	 	}
-  	 
-  	 	redirect '/sale-now/items'
-  	 
+
+  	 	redirect '/products'
+
   	  else
       # error -- incorrect un or pw
       session[:message] = {
@@ -69,7 +69,7 @@ class UserController < ApplicationController
         status: "bad",
         message: "Invalid username or password."
       }
-      
+
       # redirect to /login so they can reattempt
       redirect '/users/login'
 	 end
@@ -84,6 +84,6 @@ class UserController < ApplicationController
 			status: "neutral",
 			message: "User #{username} loggedout"
 		}
-		redirect '/sale-now/items'
+		redirect '/auth/login'
 	end
 end
