@@ -24,6 +24,17 @@ CREATE TABLE products (
 	category_id INTEGER REFERENCES categories(id)
 );
 
+CREATE TABLE ratings(
+	id SERIAL PRIMARY KEY,
+	product_rating INTEGER,
+	product_id INTEGER REFERENCES products(id)
+);
+
+-- ALTER TABLE products ADD rating_id INTEGER REFERENCES ratings (id)
+
+
+
+
 
 	-- housing_id INTEGER REFERENCES products(id),
 	-- electronics_id INTEGER REFERENCES products(id),
