@@ -6,7 +6,7 @@
 		<li><%=@product.title%></li>
 		<li><%=@product.product_price%></li>
 		<li><%=@product.description%></li>
-		<li>rating: </li>
+		<li>rating: <%=@total_rating%></li>
 	</ul>
 	<% if session[:logged_in] %>
 		<form action="/products/rating/<%=@product.id%>" method="POST">

@@ -79,7 +79,25 @@ class ProductController < ApplicationController
 
   get '/all-list/:id' do 
     @product = Product.find params[:id]
-    erb :products_show
+    # find a rating data that has product with [:id]
+    rating_all = Rating.where :product_id => params[:id]
+    
+    if rating_all 
+     rates = []
+     rating_all.each do |rate|
+     rates.push(rate.product_rating)
+    end
+    
+    summ_of_ratings = rates.reduce(0) { |sum, n| sum + n }
+    
+    if rates.length == 0
+     @total_rating = 'unrated'
+     erb :products_show
+    else
+     @total_rating = summ_of_ratings/rates.length
+     erb :products_show
+    end
+    end
   end
 
   post '/rating/:id' do
