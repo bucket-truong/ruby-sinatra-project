@@ -1,14 +1,12 @@
-  <h2>Home</h2>
-    <ul>
-      <% @products.each do |product| %>
-        <li>
-            <%=product.title%>
-            <%=product.product_price%>
-            <a href="/products/<%= product.id %>/edit">(Edit)</a>
-            <form action="/products/<%= product.id %>" method="POST">
-              <input type="hidden" name="_method" value="DELETE">
-              <button>Delete</button>
-            </form>
-        </li>
-      <% end %>
-    </ul>
+  <h2>My Listings</h2>
+
+  <div class="product-made">
+  <% @products.each do |product|%>
+    <div class="product">
+      <%=product.title%><br/>
+      <%=product.product_price%><br/>
+      <%=product.description%><br/>
+      <button type="button" class="btn btn-secondary">Purchase</button>
+    </div>
+    <% end %>
+    </div>
