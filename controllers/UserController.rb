@@ -20,7 +20,7 @@ class UserController < ApplicationController
 	  user.save
 
 	  session[:logged_in] = true
-	  session[:message] = user.username
+	  session[:username] = user.username
 	  session[:message] = {
 	  	success: true,
 	  	status: "good",
