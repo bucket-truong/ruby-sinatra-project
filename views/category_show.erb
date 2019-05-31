@@ -7,14 +7,16 @@
 
 	<h2>you are in right category</h2>
 
+	<div class="product-made">
 	<% @product.each do |item|%>
 		<div class="product">
 			<%=item.title%><br/>
 			<%=item.product_price%><br/>
 			<%=item.description%><br/>
-			<button type="button">Purchase</button>
+			<button type="button" class="btn btn-secondary">Purchase</button>
 		</div>
 		<% end %>
+		</div>
 
 </body>
 </html>
