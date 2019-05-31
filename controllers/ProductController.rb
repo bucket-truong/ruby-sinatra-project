@@ -74,6 +74,7 @@ class ProductController < ApplicationController
 
   get '/category/:id' do
     @product = Product.where :category_id => params[:id]
+    @category = Category.find params[:id]
     erb :category_show
   end
 
