@@ -28,7 +28,7 @@ class UserController < ApplicationController
 	  }
 
 	 # redirect '/products/products'
-	 return "Welcome to products #{user.username}"
+	redirect '/products/all-list'
 
 	else
 		session[:message] = {
@@ -60,7 +60,7 @@ class UserController < ApplicationController
   	 		message: "logged in as #{user.username}"
   	 	}
 
-  	 	redirect '/products'
+  	 	redirect '/products/all-list'
 
   	  else
       # error -- incorrect un or pw
@@ -71,7 +71,7 @@ class UserController < ApplicationController
       }
 
       # redirect to /login so they can reattempt
-      redirect '/users/login'
+      redirect '/auth/login'
 	 end
 	end
 

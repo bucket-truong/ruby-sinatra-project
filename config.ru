@@ -9,7 +9,7 @@ require './controllers/CategoryController'
 require './models/CategoryModel'
 require './models/ProductModel'
 require './models/UserModel'
-require './models/RatingMOdel'
+require './models/RatingModel'
 
 map ('/') {
 	run ApplicationController

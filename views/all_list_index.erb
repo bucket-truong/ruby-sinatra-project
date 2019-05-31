@@ -1,25 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>All List</title>
-</head>
+
 <body>
-	<h1>SPLY</h1>
+
 	<% @category.each do |category|%>
-		<a href="/products/category/<%=category.id%>"><%= category[:name] %></a>|
+		<a href="/products/category/<%=category.id%>"><%= category[:name] %></a> |
 	<% end %>
-
-
+	<div class="search_container">
+	<form action="/products/:title" method="GET">
+		<input type="search" name="product" class="search">
+		<input type="submit" name="" value="search">
+	</form>
+	</div>
 
 	<% @products.each do |product|%>
+	<div class="product">
+		<img src="<%=product.image%>">
 		<ul>
 			<li><%=product.title%></li>
-			<li><%=product.product_price%></li>
+			<li><%=product.product_price%>$</li>
 			<li><%=product.description%></li>
-			<li>Rating:</li>
 			<a href="/products/all-list/<%=product.id%>">See more</a>
 			<button>Purchase</button>
 		</ul>
+	</div>
 	<% end %>
-</body>
-</html>
+

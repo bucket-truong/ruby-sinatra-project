@@ -109,6 +109,11 @@ class ProductController < ApplicationController
     redirect '/products/all-list'
   end
 
+  get '/:title' do
+    @product = Product.where :title => params[:product]
+    erb :search_product
+  end
+
   after do
     puts "after filter"
   end
