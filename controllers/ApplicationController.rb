@@ -1,9 +1,10 @@
 class ApplicationController < Sinatra::Base
 
   require 'bundler'
-
   Bundler.require()
 
+  require 'net/http'
+  
   enable :sessions
 
   ActiveRecord::Base.establish_connection(

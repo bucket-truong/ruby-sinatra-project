@@ -4,6 +4,7 @@
 	<% @category.each do |category|%>
 		<a href="/products/category/<%=category.id%>"><%= category[:name] %></a> |
 	<% end %>
+	
 	<div class="search_container">
 	<form action="/products/:title" method="GET">
 		<input type="search" name="product" class="search">

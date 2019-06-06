@@ -21,6 +21,7 @@ class UserController < ApplicationController
 
 	  session[:logged_in] = true
 	  session[:username] = user.username
+	  session[:user_id] = user.id
 	  session[:message] = {
 	  	success: true,
 	  	status: "good",
@@ -54,6 +55,7 @@ class UserController < ApplicationController
   	 if user && user.authenticate(pw)
   	 	session[:logged_in] = true
   	 	session[:username] = user.username
+  	 	session[:user_id] = user.id
   	 	session[:message] = {
   	 		success: true,
   	 		status: "good",
